@@ -5,7 +5,9 @@ import matplotlib.pyplot as plt
 def f(x):
     return 3*x**2 - 4*x + 5
 
-x = 5.0
-# new comment to test github
-
-print(f(x))
+xs = np.arange(-5,5,0.25)
+ys = f(xs)
+# print(xs)
+# print(ys)
+plt.plot(xs,ys)
+plt.show()
