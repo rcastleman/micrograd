@@ -9,5 +9,10 @@ xs = np.arange(-5,5,0.25)
 ys = f(xs)
 # print(xs)
 # print(ys)
-plt.plot(xs,ys)
-plt.show()
+# plt.plot(xs,ys)
+# plt.show()
+
+def slope(x,h):
+    return (f(x+h)-f(x))/h
+
+print(slope(3.0,0.00000001))
