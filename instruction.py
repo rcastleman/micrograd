@@ -2,6 +2,8 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 
+# from lectures/micrograd/micrograd_lecture_first_half_roughly.ipynb
+
 def f(x):
     return 3*x**2 - 4*x + 5
 
@@ -28,20 +30,20 @@ c = 10.0
 def d(a,b,c): 
     return a*b + c
 
-#increase a by h to see sign of slope and magnitude of effect
-print("d^a = ",d(a,b,c))
-print("d1^a =",d(a+h,b,c))
-print("slope:",(d(a+h,b,c)-d(a,b,c))/h)
+# #increase a by h to see sign of slope and magnitude of effect
+# print("d^a = ",d(a,b,c))
+# print("d1^a =",d(a+h,b,c))
+# print("slope:",(d(a+h,b,c)-d(a,b,c))/h)
 
-#increase b by h to see sign of slope and magnitude of effect
-print("d^b = ",d(a,b,c))
-print("d1^b =",d(a,b+h,c))
-print("slope:",(d(a,b+h,c)-d(a,b,c))/h)
+# #increase b by h to see sign of slope and magnitude of effect
+# print("d^b = ",d(a,b,c))
+# print("d1^b =",d(a,b+h,c))
+# print("slope:",(d(a,b+h,c)-d(a,b,c))/h)
 
-#increase c by h to see sign of slope and magnitude of effect
-print("d^c = ",d(a,b,c))
-print("d1^c =",d(a,b,c+h))
-print("slope:",(d(a,b,c+h)-d(a,b,c))/h)
+# #increase c by h to see sign of slope and magnitude of effect
+# print("d^c = ",d(a,b,c))
+# print("d1^c =",d(a,b,c+h))
+# print("slope:",(d(a,b,c+h)-d(a,b,c))/h)
 
 class Value:
     
@@ -49,4 +51,17 @@ class Value:
         self.data = data
     
     def __repr__(self) -> str:
-        return f"Value(data)={self.data})"
+        return f"Value(data={self.data})"
+    
+    def __add__(self,other):
+        out = Value(self.data + other.data)
+        return out
+    
+    def __mul__(self,other):
+        out = Value(self.data * other.data)
+        return out
+
+a = Value(2.0)
+b = Value(-3.0)
+c = Value(10.0)
+print(a*b+c) #python interprets "a+b" by using the __add__ or __mul__ function in the Class, where a = self and b = other
