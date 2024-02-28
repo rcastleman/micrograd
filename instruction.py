@@ -47,19 +47,20 @@ def d(a,b,c):
 
 class Value:
     
-    def __init__(self,data,_children=()):
+    def __init__(self,data,_children=(),_op=''):
         self.data = data
-        self.prev = set(_children)
-    
+        self._prev = set(_children)
+        self._op = _op
+
     def __repr__(self) -> str:
         return f"Value(data={self.data})"
     
     def __add__(self,other):
-        out = Value(self.data + other.data,(self,other))
+        out = Value(self.data + other.data,(self,other),'+')
         return out
     
     def __mul__(self,other):    
-        out = Value(self.data * other.data,(self,other))
+        out = Value(self.data * other.data,(self,other),'*')
         return out
 
 a = Value(2.0)
@@ -68,4 +69,5 @@ c = Value(10.0)
 d = a*b + c
 print("d = a*b + c =",d)
 # print(a*b+c) #python interprets "a+b" by using the __add__ or __mul__ function in the Class, where a = self and b = other
-print(d.prev)
+print("previous=",d._prev)
+print("op = ",d._op)
