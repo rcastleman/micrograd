@@ -67,7 +67,11 @@ a = Value(2.0)
 b = Value(-3.0)
 c = Value(10.0)
 d = a*b + c
+e = b*c
 print("d = a*b + c =",d)
 # print(a*b+c) #python interprets "a+b" by using the __add__ or __mul__ function in the Class, where a = self and b = other
 print("previous=",d._prev)
 print("op = ",d._op)
+print("e value:",e)
+print("e children:",e._prev)
+print("e operation:",e._op)
