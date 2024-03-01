@@ -1,7 +1,12 @@
 import math
 import numpy as np
 import matplotlib.pyplot as plt
-import vis as vis
+from mod_import_test import add
+# from vis import vis
+
+
+print(add(3,4))
+# print(vis(d))
 
 # from lectures/micrograd/micrograd_lecture_first_half_roughly.ipynb
 
@@ -68,13 +73,7 @@ a = Value(2.0)
 b = Value(-3.0)
 c = Value(10.0)
 d = a*b + c
-e = b*c
 # print("d = a*b + c =",d)
 # print(a*b+c) #python interprets "a+b" by using the __add__ or __mul__ function in the Class, where a = self and b = other
-# print("previous=",d._prev)
-# print("op = ",d._op)
-# print("e value:",e)
-# print("e children:",e._prev)
-# print("e operation:",e._op)
 
-print(vis(d))
+# vis(d)
