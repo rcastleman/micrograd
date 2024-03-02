@@ -5,7 +5,7 @@ from mod_import_test import add
 # from vis import vis
 
 
-print(add(3,4))
+print(add(7,3))
 # print(vis(d))
 
 # from lectures/micrograd/micrograd_lecture_first_half_roughly.ipynb
