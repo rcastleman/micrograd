@@ -109,4 +109,7 @@ d = a*b + c
 # print("d = a*b + c =",d)
 # print(a*b+c) #python interprets "a+b" by using the __add__ or __mul__ function in the Class, where a = self and b = other
 
-draw_dot(d)
+# draw_dot(d)
+print(d)
+print(d._prev)
+print(d._op)
