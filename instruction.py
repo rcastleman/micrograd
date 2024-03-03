@@ -1,7 +1,7 @@
 import math
 import numpy as np
 import matplotlib.pyplot as plt
-from mod_import_test import add
+# from mod_import_test import add
 # from vis import vis
 
 from graphviz import Digraph
@@ -25,7 +25,8 @@ def draw_dot(root):
   for n in nodes:
     uid = str(id(n))
     # for any value in the graph, create a rectangular ('record') node for it
-    dot.node(name = uid, label = "{ %s | data %.4f | grad %.4f }" % (n.label, n.data, n.grad), shape='record')
+    # dot.node(name = uid, label = "{ %s | data %.4f | grad %.4f }" % (n.label, n.data, n.grad), shape='record')
+    dot.node(name = uid, label = "{ %s | data %.4f}" % (n.data,), shape='record')
     if n._op:
       # if this value is a result of some operation, create an op node for it
       dot.node(name = uid + n._op, label = n._op)
