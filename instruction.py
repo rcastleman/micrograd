@@ -38,7 +38,6 @@ def draw_dot(root):
 
   return dot
 
-
 # print(add(7,3))
 # print(vis(d))
 
@@ -54,9 +53,9 @@ ys = f(xs)
 # plt.plot(xs,ys)
 # plt.show()
 
-x = 2/3
+# x = 2/3
 # slope = 0 at 2/3
-h = 0.0001
+# h = 0.0001
 
 def slope(x,h):
     return (f(x+h)-f(x))/h
@@ -64,11 +63,11 @@ def slope(x,h):
 # print(slope(x,h))
 
 # let's get more complex
-a = 2.0
-b = -3.0
-c = 10.0
-def d(a,b,c): 
-    return a*b + c
+# a = 2.0
+# b = -3.0
+# c = 10.0
+# def d(a,b,c): 
+#     return a*b + c
 
 # #increase a by h to see sign of slope and magnitude of effect
 # print("d^a = ",d(a,b,c))
@@ -110,4 +109,4 @@ d = a*b + c
 # print("d = a*b + c =",d)
 # print(a*b+c) #python interprets "a+b" by using the __add__ or __mul__ function in the Class, where a = self and b = other
 
-# vis(d)
+draw_dot(d)
