@@ -26,7 +26,7 @@ def draw_dot(root):
     uid = str(id(n))
     # for any value in the graph, create a rectangular ('record') node for it
     # dot.node(name = uid, label = "{ %s | data %.4f | grad %.4f }" % (n.label, n.data, n.grad), shape='record')
-    dot.node(name = uid, label = "{ %s | data %.4f}" % (n.data,), shape='record')
+    dot.node(name = uid, label = "{ data %.4f}" % (n.data,), shape='record')
     if n._op:
       # if this value is a result of some operation, create an op node for it
       dot.node(name = uid + n._op, label = n._op)
@@ -110,7 +110,7 @@ d = a*b + c
 # print("d = a*b + c =",d)
 # print(a*b+c) #python interprets "a+b" by using the __add__ or __mul__ function in the Class, where a = self and b = other
 
-# draw_dot(d)
-print(d)
-print(d._prev)
-print(d._op)
+print(draw_dot(d))
+# print(d)
+# print(d._prev)
+# print(d._op)
