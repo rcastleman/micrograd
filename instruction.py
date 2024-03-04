@@ -7,8 +7,7 @@ import matplotlib.pyplot as plt
 from graphviz import Digraph
 
 def trace(root):
-  # builds a set of all nodes and edges in a graph
-  nodes, edges = set(), set()
+  # builds a set of all nodes and edges in a graph  nodes, edges = set(), set()
   def build(v):
     if v not in nodes:
       nodes.add(v)
@@ -87,10 +86,11 @@ def slope(x,h):
 
 class Value:
     
-    def __init__(self,data,_children=(),_op=''):
+    def __init__(self,data,_children=(),_op='',label = ''):
         self.data = data
         self._prev = set(_children)
         self._op = _op
+        self.label = label
 
     def __repr__(self) -> str:
         return f"Value(data={self.data})"
@@ -103,10 +103,12 @@ class Value:
         out = Value(self.data * other.data,(self,other),'*')
         return out
 
-a = Value(2.0)
-b = Value(-3.0)
-c = Value(10.0)
-d = a*b + c
+a = Value(2.0, label = 'a')
+b = Value(-3.0, label = 'b')
+c = Value(10.0, label = 'c')
+e = a*b; e.label = 'e'
+d = e+c; d.label = 'd'
+
 # print("d = a*b + c =",d)
 # print(a*b+c) #python interprets "a+b" by using the __add__ or __mul__ function in the Class, where a = self and b = other
 
