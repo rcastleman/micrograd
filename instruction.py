@@ -113,6 +113,18 @@ d = e+c; d.label = 'd'
 f = Value(-2.0, label='f')
 L = d * f; L.label = 'L'
 
+def lol():
+  h = 0.0001
+  
+  a = Value(2.0, label = 'a')
+  b = Value(-3.0, label = 'b')
+  c = Value(10.0, label = 'c')
+  e = a*b; e.label = 'e'
+  d = e+c; d.label = 'd'
+  f = Value(-2.0, label='f')
+  L = d * f; L.label = 'L'
+  L1 = L 
+
 # print("d = a*b + c =",d)
 # print(a*b+c) #python interprets "a+b" by using the __add__ or __mul__ function in the Class, where a = self and b = other
 
