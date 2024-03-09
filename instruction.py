@@ -114,7 +114,7 @@ f = Value(-2.0, label='f')
 L = d * f; L.label = 'L'
 
 def lol():
-  h = 0.0001
+  h = 0.001
   
   a = Value(2.0, label = 'a')
   b = Value(-3.0, label = 'b')
@@ -125,12 +125,12 @@ def lol():
   L = d * f; L.label = 'L'
   L1 = L.data
 
-  a = Value(2.0 + h, label = 'a')
+  a = Value(2.0, label = 'a')
   b = Value(-3.0, label = 'b')
   c = Value(10.0, label = 'c')
   e = a*b; e.label = 'e'
   d = e+c; d.label = 'd'
-  f = Value(-2.0, label='f')
+  f = Value(-2.0 + h, label='f')
   L = d * f; L.label = 'L'
   L2 = L.data
 
@@ -146,4 +146,4 @@ def lol():
 # print(d._prev)
 # print(d._op)
 
-print("The derivative of L with respect to a is:", lol())
+print("The derivative of L with respect to f is:", lol())
