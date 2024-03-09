@@ -134,12 +134,16 @@ def lol():
   L = d * f; L.label = 'L'
   L2 = L.data
 
-  print((L2 - L1/h))
+  print("L1 =",L1)
+  print("L2 =",L2)
+  print("L2 - L1 / h = ",((L2-L1)/h))
 
 # print("d = a*b + c =",d)
 # print(a*b+c) #python interprets "a+b" by using the __add__ or __mul__ function in the Class, where a = self and b = other
 
-print(draw_dot(L))
+# print(draw_dot(L))
 # print(d)
 # print(d._prev)
 # print(d._op)
+
+print("The derivative of L with respect to a is:", lol())
