@@ -128,9 +128,10 @@ def lol():
   a = Value(2.0, label = 'a')
   b = Value(-3.0, label = 'b')
   c = Value(10.0, label = 'c')
+  c.data += h
   e = a*b; e.label = 'e'
   d = e+c; d.label = 'd'
-  d.data +=h
+  # d.data +=h
   f = Value(-2.0, label='f')
   L = d * f; L.label = 'L'
   L2 = L.data
