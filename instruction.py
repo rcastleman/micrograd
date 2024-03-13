@@ -114,7 +114,7 @@ f = Value(-2.0, label='f')
 L = d * f; L.label = 'L'
 
 def lol():
-  h = 0.001
+  h = 0.00001
   
   a = Value(2.0, label = 'a')
   b = Value(-3.0, label = 'b')
