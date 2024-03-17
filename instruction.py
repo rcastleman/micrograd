@@ -105,28 +105,28 @@ class Value:
         out = Value(self.data * other.data,(self,other),'*')
         return out
 
-a = Value(2.0, label = 'a')
-b = Value(-3.0, label = 'b')
-c = Value(10.0, label = 'c')
-e = a*b; e.label = 'e'
-d = e+c; d.label = 'd'
-f = Value(-2.0, label='f')
-L = d * f; L.label = 'L'
+# a = Value(2.0, label = 'a')
+# b = Value(-3.0, label = 'b')
+# c = Value(10.0, label = 'c')
+# e = a*b; e.label = 'e'
+# d = e+c; d.label = 'd'
+# f = Value(-2.0, label='f')
+# L = d * f; L.label = 'L'
 
 def lol():
   # h = 0.001
    
-  a = Value(2.0, label = 'a')
-  b = Value(-3.0, label = 'b')
-  c = Value(10.0, label = 'c')
-  e = a*b; e.label = 'e'
-  d = e+c; d.label = 'd'
-  f = Value(-2.0, label='f')
-  L = d * f; L.label = 'L'
-  L1 = L.data
+  # a = Value(2.0, label = 'a')
+  # b = Value(-3.0, label = 'b')
+  # c = Value(10.0, label = 'c')
+  # e = a*b; e.label = 'e'
+  # d = e+c; d.label = 'd'
+  # f = Value(-2.0, label='f')
+  # L = d * f; L.label = 'L';L.grad = 1.0
+  # L1 = L.data
 
-  delta = 0.01
-  
+  delta = 0.00
+
   a = Value(2.0, label = 'a')
   a.data += delta * a.grad
   # a.data += h
@@ -142,12 +142,15 @@ def lol():
   # d.data +=h
   f = Value(-2.0, label='f')
   f.data += delta * f.grad
-  L = d * f; L.label = 'L'
-  L2 = L.data
+  L = d * f; L.label = 'L';L.grad = 1.0
+  # L2 = L.data
 
-  print("L1 =",L1)
-  print("L2 =",L2)
-  print(f"With h = {h} and d = {d.data}, (L2 - L1 / h) = ",((L2-L1)/h))
+  print(f"L.data = {L.data} and L.grad = {L.grad}")
+
+
+  # print("L1 =",L1)
+  # print("L2 =",L2)
+  # print(f"With h = {h} and d = {d.data}, (L2 - L1 / h) = ",((L2-L1)/h))
 
 # print("d = a*b + c =",d)
 # print(a*b+c) #python interprets "a+b" by using the __add__ or __mul__ function in the Class, where a = self and b = other
