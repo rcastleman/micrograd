@@ -125,28 +125,33 @@ def lol():
   # L = d * f; L.label = 'L';L.grad = 1.0
   # L1 = L.data
 
-  delta = 0.00
+  delta = 0.01
 
   a = Value(2.0, label = 'a')
+  a.grad = 6.0
   a.data += delta * a.grad
   # a.data += h
   b = Value(-3.0, label = 'b')
+  b.grad = -4.0
   b.data += delta * b.grad
   # b.data += h
   c = Value(10.0, label = 'c')
+  c.grad = -2.0
   c.data += delta * c.grad
   # c.data += h
   e = a*b; e.label = 'e'
+  e.grad = -2.0
   # e.data += h
   d = e+c; d.label = 'd'
+  d.grad = -2.0
   # d.data +=h
   f = Value(-2.0, label='f')
+  f.grad = 4.0
   f.data += delta * f.grad
   L = d * f; L.label = 'L';L.grad = 1.0
   # L2 = L.data
 
-  print(f"L.data = {L.data} and L.grad = {L.grad}")
-
+  return(f"L.data = {L.data} and L.grad = {L.grad} due to a.data = {a.data}")
 
   # print("L1 =",L1)
   # print("L2 =",L2)
