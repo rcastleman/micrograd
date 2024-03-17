@@ -115,7 +115,7 @@ L = d * f; L.label = 'L'
 
 def lol():
   # h = 0.001
-  
+   
   a = Value(2.0, label = 'a')
   b = Value(-3.0, label = 'b')
   c = Value(10.0, label = 'c')
@@ -125,17 +125,23 @@ def lol():
   L = d * f; L.label = 'L'
   L1 = L.data
 
+  delta = 0.01
+  
   a = Value(2.0, label = 'a')
+  a.data += delta * a.grad
   # a.data += h
   b = Value(-3.0, label = 'b')
-  b.data += h
+  b.data += delta * b.grad
+  # b.data += h
   c = Value(10.0, label = 'c')
+  c.data += delta * c.grad
   # c.data += h
   e = a*b; e.label = 'e'
   # e.data += h
   d = e+c; d.label = 'd'
   # d.data +=h
   f = Value(-2.0, label='f')
+  f.data += delta * f.grad
   L = d * f; L.label = 'L'
   L2 = L.data
 
