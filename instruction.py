@@ -151,7 +151,7 @@ def lol():
   L = d * f; L.label = 'L';L.grad = 1.0
   # L2 = L.data
 
-  return(f"L.data = {L.data} where a.data = {a.data}, b.data = {b.data}, c.data = {c.data}, d.data = {d.data}, e.data = {e.data}, and f.data = {f.data}")
+  return(f"L.data = {L.data} where a.data = {a.data}, a.grad = {a.grad}, b.data = {b.data}, c.data = {c.data}, d.data = {d.data}, e.data = {e.data}, and f.data = {f.data}")
 
   # print("L1 =",L1)
   # print("L2 =",L2)
