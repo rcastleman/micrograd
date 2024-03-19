@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 plt.plot(np.tanh(np.arange(-5,5,0.2)));plt.grid()
 plt.plot(np.arange(-5,5,0.2)),np.tanh(np.arange(-5,5,0.2));plt.grid()
 
-
 # from mod_import_test import add
 # from vis import vis
 
