@@ -107,6 +107,14 @@ class Value:
     def __mul__(self,other):    
         out = Value(self.data * other.data,(self,other),'*')
         return out
+    
+    def tanh(self):
+       x = self.data
+       t = (math.exp(2*x) - 1)/(math.exp(2*x)+1)
+       out = Value(t, (self,),'tanh')
+       return out
+
+       
 
 # a = Value(2.0, label = 'a')
 # b = Value(-3.0, label = 'b')
