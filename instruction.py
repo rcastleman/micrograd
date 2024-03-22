@@ -197,3 +197,5 @@ n = x1w1x2w2 + b; n.label = 'n'
 print(f"x1 = {x1.data}, x2 = {x2.data}, w1 = {w1.data}, w2 ={w2.data}")
 print(f"x1 * w1 = {x1w1.data}, x2 * w2 = {x2w2.data} and x1w1 + x2w2 = {x1w1x2w2.data}")
 print(f"and b = {b.data} so n = {n.data}")
+
+plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
