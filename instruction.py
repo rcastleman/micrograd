@@ -192,7 +192,7 @@ x1w1 = x1*w1; x1w1.label = 'x1*w1'
 x2w2 = x2*w2; x2w2.label = 'x2*w2'
 x1w1x2w2 = x1w1 + x2w2; x1w1x2w2.label = 'x1*w1 + x2*w2'
 n = x1w1x2w2 + b; n.label = 'n'
-# o = n.tanh(); o.label = 'o'
+o = n.tanh(); o.label = 'o'
 
 print(f"x1 = {x1.data}, x2 = {x2.data}, w1 = {w1.data}, w2 ={w2.data}")
 print(f"x1 * w1 = {x1w1.data}, x2 * w2 = {x2w2.data} and x1w1 + x2w2 = {x1w1x2w2.data}")
