@@ -50,11 +50,6 @@ def draw_dot(root):
 
 # from lectures/micrograd/micrograd_lecture_first_half_roughly.ipynb
 
-def f(x):
-    return 3*x**2 - 4*x + 5
-
-xs = np.arange(-5,5,0.25)
-ys = f(xs)
 # print(xs)
 # print(ys)
 # plt.plot(xs,ys)
@@ -64,8 +59,8 @@ ys = f(xs)
 # slope = 0 at 2/3
 # h = 0.0001
 
-def slope(x,h):
-    return (f(x+h)-f(x))/h
+# def slope(x,h):
+    # return (f(x+h)-f(x))/h
 
 # print(slope(x,h))
 
@@ -197,22 +192,24 @@ x1w1x2w2 = x1w1 + x2w2; x1w1x2w2.label = 'x1*w1 + x2*w2'
 n = x1w1x2w2 + b; n.label = 'n'
 o = n.tanh(); o.label = 'o'
 
-print(f"x1 = {x1.data}, x2 = {x2.data}, w1 = {w1.data}, w2 ={w2.data}")
-print(f"x1 * w1 = {x1w1.data}, x2 * w2 = {x2w2.data} and x1w1 + x2w2 = {x1w1x2w2.data}")
-print(f"and b = {b.data} so n = {n.data} and o (with tanh function) = {o.data}")
+# print(f"x1 = {x1.data}, x2 = {x2.data}, w1 = {w1.data}, w2 ={w2.data}")
+# print(f"x1 * w1 = {x1w1.data}, x2 * w2 = {x2w2.data} and x1w1 + x2w2 = {x1w1x2w2.data}")
+# print(f"and b = {b.data} so n = {n.data} and o (with tanh function) = {o.data}")
 
 plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 
 #-------backprop--------#
 # https://en.wikipedia.org/wiki/Chain_rule
-# working R to L 
-# deriv of o with respect to o:
+# working R to L ... 
+# 1) deriv of o with respect to o:
 # do/do = 1.0 
 o.grad = 1.0
-# deriv of o with respect to n:
+# 2) deriv of o with respect to n:
 # o = tanh(n)
 # # do/dn = (1 - tanh**2) [per Wikipedia/Chain Rule] = (1 - o**2) = 0.5 where o.data = 0.7 
 n.grad = 0.5
-# deriv of o with respect to x1w1 and b: a "plus" node takes gradiant from the node to its right
+# 3) deriv of o with respect to x1w1 and b: a "plus" node takes gradiant from the node to its right
 x1w1x2w2.grad = 0.5
 b.grad = 0.5
+
+print(draw_dot(o))
