@@ -208,5 +208,5 @@ plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 o.grad = 1.0
 # deriv of o with respect to n:
 # o = tanh(n)
-# # do/dn = (1 - tanh**2) = (1 - o**2) [per Wikipedia/Chain Rule]
-
+# # do/dn = (1 - tanh**2) [per Wikipedia/Chain Rule] = (1 - o**2) = 0.5 where o.data = 0.7 
+n.grad = 0.5
