@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 plt.plot(np.tanh(np.arange(-5,5,0.2)));plt.grid()
 plt.plot(np.arange(-5,5,0.2)),np.tanh(np.arange(-5,5,0.2));plt.grid()
 
+# RC colab: 
+# https://colab.research.google.com/drive/1Ngiil6eNu5oqa3ZbVozsJAPncaciI4uE#scrollTo=GTY711CWZxaJ
+
 # from mod_import_test import add
 # from vis import vis
 
