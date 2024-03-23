@@ -199,3 +199,14 @@ print(f"x1 * w1 = {x1w1.data}, x2 * w2 = {x2w2.data} and x1w1 + x2w2 = {x1w1x2w2
 print(f"and b = {b.data} so n = {n.data} and o (with tanh function) = {o.data}")
 
 plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
+
+#-------backprop--------#
+# https://en.wikipedia.org/wiki/Chain_rule
+# working R to L 
+# deriv of o with respect to o:
+# do/do = 1.0 
+o.grad = 1.0
+# deriv of o with respect to n:
+# o = tanh(n)
+# # do/dn = (1 - tanh**2) = (1 - o**2) [per Wikipedia/Chain Rule]
+
