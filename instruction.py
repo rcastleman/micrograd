@@ -198,7 +198,7 @@ o = n.tanh(); o.label = 'o'
 
 plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 
-#-------backprop--------#
+#------- MANUAL BACKPROP --------#
 # https://en.wikipedia.org/wiki/Chain_rule
 # working R to L ... 
 # 1) deriv of o with respect to o:
@@ -214,5 +214,15 @@ b.grad = 0.5
 # 4) LOCAL deriv of x1w1x2w2 with respect to x2*w2 and x1*w1 ... plus node takes gradiant from node to its right
 x1w1.grad = 0.5
 x2w2.grad = 0.5
+# 5) LOCAL deriv of x2*w2 and x1*w1 with respect to x1,x2,w1,w2 ... mult node takes DATA value from multiplicand
+x1.grad = w1.data * x1w1.grad
+x2.grad =w2.data * x2w2.grad
+w1.grad = x1.data * x1w1.grad
+w2.grad = x2.data *x2w2.grad
 
-print(draw_dot(o))
+print(f"x1.grad = {x1.grad}")
+print(f"x2.grad = {x2.grad}")
+print(f"w1.grad = {w1.grad}")
+print(f"w2.grad = {w2.grad}")
+
+# print(draw_dot(o))
