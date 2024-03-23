@@ -208,8 +208,11 @@ o.grad = 1.0
 # o = tanh(n)
 # # do/dn = (1 - tanh**2) [per Wikipedia/Chain Rule] = (1 - o**2) = 0.5 where o.data = 0.7 
 n.grad = 0.5
-# 3) deriv of o with respect to x1w1 and b: a "plus" node takes gradiant from the node to its right
+# 3) LOCAL deriv of o with respect to x1w1 and b: a "plus" node takes gradiant from the node to its right
 x1w1x2w2.grad = 0.5
 b.grad = 0.5
+# 4) LOCAL deriv of x1w1x2w2 with respect to x2*w2 and x1*w1 ... plus node takes gradiant from node to its right
+x1w1.grad = 0.5
+x2w2.grad = 0.5
 
 print(draw_dot(o))
