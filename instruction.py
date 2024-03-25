@@ -102,16 +102,16 @@ class Value:
     def __add__(self,other):
         out = Value(self.data + other.data,(self,other),'+')
         def _backward():
-           self.grad = 1.0 * out.grad
-           other.grad = 1.0 * out.grad
+           self.grad += 1.0 * out.grad
+           other.grad += 1.0 * out.grad
         out._backward = _backward
         return out
     
     def __mul__(self,other):    
         out = Value(self.data * other.data,(self,other),'*')
         def _backward():
-           self.grad = other.data * out.grad
-           other.grad = self.data * out.grad
+           self.grad += other.data * out.grad
+           other.grad += self.data * out.grad
         out._backward = _backward
         return out
     
@@ -244,10 +244,11 @@ print(f"x1.grad = {x1.grad}")
 print(f"x2.grad = {x2.grad}")
 print(f"w1.grad = {w1.grad}")
 print(f"w2.grad = {w2.grad}")
+print(f"x1w1.grad = {x1w1.grad}")
+print(f"x2w2.grad = {x2w2.grad}")
 print(f"b.grad = {b.grad}")
 print(f"n.grad = {n.grad}")
 print(f"o.grad = {o.grad}")
-
 
 # print(draw_dot(o))
 
