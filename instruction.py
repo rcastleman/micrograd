@@ -249,8 +249,5 @@ print(f"x2w2.grad = {x2w2.grad}")
 print(f"b.grad = {b.grad}")
 print(f"n.grad = {n.grad}")
 print(f"o.grad = {o.grad}")
-print(f"x1.grad = {x1.grad}")
 
 # print(draw_dot(o))
-
-
