@@ -91,7 +91,7 @@ class Value:
     def __init__(self,data,_children=(),_op='',label = ''):
         self.data = data
         self.grad = 0.0
-        self._backward = lambda: None
+        self._backward = lambda: None #does nothing by default ... also ... The underscore can be used as a prefix to a function name to indicate that the function is private. This means that the function should not be called directly by other code, but only by code within the same module.
         self._prev = set(_children)
         self._op = _op
         self.label = label
