@@ -219,13 +219,13 @@ o.grad = 1.0
 # 2) deriv of o with respect to n:
 # o = tanh(n)
 # # do/dn = (1 - tanh**2) [per Wikipedia/Chain Rule] = (1 - o**2) = 0.5 where o.data = 0.7 
-n.grad = 0.5
+# n.grad = 0.5
 # 3) LOCAL deriv of o with respect to x1w1 and b: a "plus" node takes gradiant from the node to its right
-x1w1x2w2.grad = 0.5
-b.grad = 0.5
+# x1w1x2w2.grad = 0.5
+# b.grad = 0.5
 # 4) LOCAL deriv of x1w1x2w2 with respect to x2*w2 and x1*w1 ... plus node takes gradiant from node to its right
-x1w1.grad = 0.5
-x2w2.grad = 0.5
+# x1w1.grad = 0.5
+# x2w2.grad = 0.5
 # 5) LOCAL deriv of x2*w2 and x1*w1 with respect to x1,x2,w1,w2 ... mult node takes DATA value from multiplicand
 x1.grad = w1.data * x1w1.grad
 x2.grad =w2.data * x2w2.grad
@@ -234,7 +234,7 @@ w2.grad = x2.data *x2w2.grad
 
 o.grad = 1.0
 o._backward()
-# n._backward()
+n._backward()
 # b._backward()
 # x1w1x2w2._backward()
 # x2w2._backward()
@@ -247,7 +247,8 @@ o._backward()
 # print(f"x1w1.grad = {x1w1.grad}")
 # print(f"x2w2.grad = {x2w2.grad}")
 # print(f"b.grad = {b.grad}")
-# print(f"n.grad = {n.grad}")
+print(f"n.grad = {n.grad}")
 print(f"o.grad = {o.grad}")
+print(f"o.data = {o.data}")
 
 # print(draw_dot(o))
