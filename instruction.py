@@ -215,7 +215,7 @@ plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 # working R to L ... 
 # 1) deriv of o with respect to o:
 # do/do = 1.0 
-o.grad = 1.0
+# o.grad = 1.0
 # 2) deriv of o with respect to n:
 # o = tanh(n)
 # # do/dn = (1 - tanh**2) [per Wikipedia/Chain Rule] = (1 - o**2) = 0.5 where o.data = 0.7 
@@ -232,6 +232,8 @@ o.grad = 1.0
 # w1.grad = x1.data * x1w1.grad
 # w2.grad = x2.data *x2w2.grad
 
+
+# ------------AUTO BACKPROP ----------------
 o.grad = 1.0
 o._backward()
 n._backward()
