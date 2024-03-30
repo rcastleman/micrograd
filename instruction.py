@@ -227,10 +227,10 @@ o.grad = 1.0
 # x1w1.grad = 0.5
 # x2w2.grad = 0.5
 # 5) LOCAL deriv of x2*w2 and x1*w1 with respect to x1,x2,w1,w2 ... mult node takes DATA value from multiplicand
-x1.grad = w1.data * x1w1.grad
-x2.grad =w2.data * x2w2.grad
-w1.grad = x1.data * x1w1.grad
-w2.grad = x2.data *x2w2.grad
+# x1.grad = w1.data * x1w1.grad
+# x2.grad =w2.data * x2w2.grad
+# w1.grad = x1.data * x1w1.grad
+# w2.grad = x2.data *x2w2.grad
 
 o.grad = 1.0
 o._backward()
