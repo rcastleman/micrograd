@@ -125,6 +125,22 @@ class Value:
       out._backward = _backward
        
       return out
+    
+    def backward(self):
+       
+      topo = []
+      visited = set()
+      def build_topo(v):
+        if v not in visited:
+          visited.add(v)
+          for child in v._prev:
+            build_topo(child)
+          topo.append(v)
+      build_topo(self)
+
+      self.grad = 1.0
+      for node in reversed(topo):
+         node._backward()
 
 # a = Value(2.0, label = 'a')
 # b = Value(-3.0, label = 'b')
@@ -234,13 +250,13 @@ plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 
 
 # ------------AUTO BACKPROP ----------------
-o.grad = 1.0
-o._backward()
-n._backward()
-b._backward()
-x1w1x2w2._backward()
-x2w2._backward()
-x1w1._backward()
+# o.grad = 1.0
+# o._backward()
+# n._backward()
+# b._backward()
+# x1w1x2w2._backward()
+# x2w2._backward()
+# x1w1._backward()
 
 # print(f"o.grad = {o.grad}")
 # print(f"o.data = {o.data}")
@@ -254,13 +270,3 @@ x1w1._backward()
 # print(f"x1.grad = {x1.grad}")
 # print(f"w1.grad = {w1.grad}")
 
-topo = []
-visited = set()
-def build_topo(v):
-   if v not in visited:
-      visited.add(v)
-      for child in v._prev:
-         build_topo(child)
-      topo.append(v)
-build_topo(o)
-print(topo)
