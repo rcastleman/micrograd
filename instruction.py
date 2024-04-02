@@ -271,4 +271,4 @@ plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 # print(f"w1.grad = {w1.grad}")
 
 o.backward()
-print(draw_dot(b))
+print(draw_dot(x1w1x2w2))
