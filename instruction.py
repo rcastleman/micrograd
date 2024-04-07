@@ -108,7 +108,8 @@ class Value:
         out._backward = _backward
         return out
     
-    def __mul__(self,other):    
+    def __mul__(self,other):
+        other = other if isinstance(other, Value) else Value(other)
         out = Value(self.data * other.data,(self,other),'*')
         def _backward():
            self.grad += other.data * out.grad
@@ -275,5 +276,5 @@ plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 # print(draw_dot(x1w1x2w2))
 
 a = Value(2.0)
-b = a + 1
+b = a * 3.0
 print(f"b = {b} where a.data = {a.data}")
