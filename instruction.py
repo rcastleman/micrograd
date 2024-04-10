@@ -131,6 +131,16 @@ class Value:
        
       return out
     
+    def exp(self):
+      x = self.data
+      out = Value(math.exp(x), (self, ), 'exp')
+    
+      def _backward():
+        self.grad += 
+      out._backward = _backward
+       
+      return out
+    
     def backward(self):
        
       topo = []
