@@ -136,7 +136,7 @@ class Value:
       out = Value(math.exp(x), (self, ), 'exp')
     
       def _backward():
-        self.grad += 
+        self.grad += out.data * out.grad
       out._backward = _backward
        
       return out
@@ -289,5 +289,6 @@ plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 # print(draw_dot(x1w1x2w2))
 
 a = Value(2.0)
-b = 2 * a
+# b = 2 * a
+b = a.exp()
 print(f"b = {b} where a.data = {a.data}")
