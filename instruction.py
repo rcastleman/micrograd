@@ -294,6 +294,7 @@ plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 # print(draw_dot(x1w1x2w2))
 
 a = Value(2.0)
+# print(a.exp())
 # b = a * 9.0
 b = Value(4.0)
 # print(f"b = {b.data}")
