@@ -123,7 +123,7 @@ class Value:
        return self * other
     
     def __truediv__(self,other):
-       return self * (other**-1)
+       return self * other**-1
     
     def tanh(self):
       x = self.data
