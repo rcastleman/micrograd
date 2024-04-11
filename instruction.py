@@ -117,8 +117,15 @@ class Value:
         out._backward = _backward
         return out
     
+    def __power__(self, other):
+       assert isinstance(other,(int, float)), "only supporting int/float for now"
+       out  = Value(self.data**other,(self,),f'**{other}')
+    
     def __rmul__(self,other):
        return self * other
+    
+    def __truediv__(self,other):
+       return self*other**-1
     
     def tanh(self):
       x = self.data
