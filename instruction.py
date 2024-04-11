@@ -111,21 +111,19 @@ class Value:
     def __mul__(self,other):
         other = other if isinstance(other, Value) else Value(other)
         out = Value(self.data * other.data,(self,other),'*')
+
         def _backward():
            self.grad += other.data * out.grad
            other.grad += self.data * out.grad
+
         out._backward = _backward
         return out
-    
-    def __power__(self, other):
-       assert isinstance(other,(int, float)), "only supporting int/float for now"
-       out  = Value(self.data**other,(self,),f'**{other}')
     
     def __rmul__(self,other):
        return self * other
     
     def __truediv__(self,other):
-       return self*other**-1
+       return self * (other**-1)
     
     def tanh(self):
       x = self.data
@@ -296,6 +294,8 @@ plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 # print(draw_dot(x1w1x2w2))
 
 a = Value(2.0)
-# b = 2 * a
-b = a.exp()
-print(f"b = {b} where a.data = {a.data}")
+# b = a * 9.0
+b = Value(4.0)
+# print(f"b = {b.data}")
+print(f"a / b = {a/b}")
+# print(f"b = {b} where a.data = {a.data}")
