@@ -336,7 +336,7 @@ o = torch.tanh(n)
 print(o.data.item())
 o.backward()
 
-print('---')
+# print('---')
 print('x2', x2.grad.item())
 print('w2', w2.grad.item())
 print('x1', x1.grad.item())
