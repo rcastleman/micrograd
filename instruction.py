@@ -336,8 +336,11 @@ o = torch.tanh(n)
 print(o.data.item())
 o.backward()
 
-# print('---')
+print('---')  
 print('x2', x2.grad.item())
 print('w2', w2.grad.item())
 print('x1', x1.grad.item())
 print('w1', w1.grad.item())
+
+my_tensor = torch.tensor([[1,2,3],[4,5,6]]).shape
+print(f"my_tensor:" {my_tensor.shape})
