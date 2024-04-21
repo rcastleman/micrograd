@@ -344,3 +344,5 @@ print('w1', w1.grad.item())
 
 my_tensor = torch.Tensor([[1,2,3],[4,5,6]])
 print(f"my_tensor:{my_tensor.shape}")
+print('---')  
+print(f"o.grad:  {x2.grad.item()}")
