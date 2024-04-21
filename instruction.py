@@ -317,6 +317,8 @@ plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 # o.backward()
 # print(draw_dot(x1w1x2w2))
 
+# --------------- IMPLEMENTING USING PYTORCH ------------------------
+
 a = Value(9.0)
 # print(a.exp())
 # b = a * 9.0
@@ -333,16 +335,39 @@ b = torch.Tensor([6.8813735870195432]).double()  ; b.requires_grad = True
 n = x1*w1 + x2*w2 + b
 o = torch.tanh(n)
 
-print(o.data.item())
-o.backward()
+# print(o.data.item())
+# o.backward()
 
-print('---')  
-print('x2', x2.grad.item())
-print('w2', w2.grad.item())
-print('x1', x1.grad.item())
-print('w1', w1.grad.item())
+# print('---')  
+# print('x2', x2.grad.item())
+# print('w2', w2.grad.item())
+# print('x1', x1.grad.item())
+# print('w1', w1.grad.item())
 
-my_tensor = torch.Tensor([[1,2,3],[4,5,6]])
-print(f"my_tensor:{my_tensor.shape}")
-print('---')  
-print(f"o.grad:  {x2.grad.item()}")
+# my_tensor = torch.Tensor([[1,2,3],[4,5,6]])
+# print(f"my_tensor:{my_tensor.shape}")
+# print('---')  
+# print(f"o.grad:  {x2.grad.item()}")
+
+
+# ------------- IMPLEMENTING NEURON ------------------
+
+class Neuron:
+  
+  def __init__(self, nin):
+    self.w = [Value(random.uniform(-1,1)) for _ in range(nin)]
+    self.b = Value(random.uniform(-1,1))
+  
+  def __call__(self, x):
+    # w * x + b
+    # act = sum((wi*xi for wi, xi in zip(self.w, x)), self.b)
+    # out = act.tanh()
+    # return out
+    return 0.0
+  
+  def parameters(self):
+    return self.w + [self.b]
+
+x = [2.0,3.0]
+n = Neuron(2)
+n(x)
