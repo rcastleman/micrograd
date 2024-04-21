@@ -1,4 +1,5 @@
 import math
+import random
 import numpy as np
 import matplotlib.pyplot as plt
 import torch
@@ -370,4 +371,4 @@ class Neuron:
 
 x = [2.0,3.0]
 n = Neuron(2)
-n(x)
+print(n(x))
