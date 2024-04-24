@@ -361,10 +361,10 @@ class Neuron:
   
   def __call__(self, x):
     # w * x + b
-    # act = sum((wi*xi for wi, xi in zip(self.w, x)), self.b)
-    # out = act.tanh()
-    # return out
-    return 0.0
+    act = sum((wi*xi for wi, xi in zip(self.w, x)), self.b)
+    out = act.tanh()
+    return out
+    # return 0.0
   
   def parameters(self):
     return self.w + [self.b]
