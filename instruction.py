@@ -369,6 +369,16 @@ class Neuron:
   def parameters(self):
     return self.w + [self.b]
 
+class Layer:
+   
+   def __call__(self,x):
+       outs = [n(x)for n in self.neurons]
+       return outs
+   
+   def __init__(self,nin,nout):
+      self.neurons = [Neuron(nin) for _ in range(nout)]
+
+
 x = [2.0,3.0]
 n = Neuron(2)
 print(n(x))
