@@ -320,12 +320,12 @@ plt.plot(np.arange(-5,5,0.2), np.tanh(np.arange(-5,5,0.2))); plt.grid()
 
 # --------------- IMPLEMENTING USING PYTORCH ------------------------
 
-a = Value(9.0)
+# a = Value(9.0)
 # print(a.exp())
 # b = a * 9.0
-b = Value(4.0)
+# b = Value(4.0)
 # print(f"b = {b.data}")
-print(f"a - b = {a-b}")
+# print(f"a - b = {a-b}")
 # print(f"b = {b} where a.data = {a.data}")
 
 x1 = torch.Tensor([2.0]).double()                ; x1.requires_grad = True
@@ -379,7 +379,20 @@ class Layer:
       self.neurons = [Neuron(nin) for _ in range(nout)]
 
 
-x = [2.0,3.0]
+class MLP:
+   
+   def __init__(self,nin,nouts):
+      sz = [nin] + nouts
+      self.layers = [Layer(sz[i],sz[i+1]) for i in range(len(nouts))]
+   def __call__(self,x):
+      for layer in self.layers:
+        x = layer(x)
+      return x
+     
+
+# x = [2.0,3.0]
 # n = Neuron(2)
-n = Layer(2,3)
+# n = Layer(2,3)
+x = [2.0,3.0,-1.0]
+n = MLP(3,[4,4,1])
 print(n(x))
