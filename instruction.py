@@ -369,6 +369,6 @@ class Neuron:
   def parameters(self):
     return self.w + [self.b]
 
-x = [4.0,9.0]
+x = [10.0,9.0]
 n = Neuron(2)
 print(n(x))
