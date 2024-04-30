@@ -380,5 +380,6 @@ class Layer:
 
 
 x = [2.0,3.0]
-n = Neuron(2)
+# n = Neuron(2)
+n = Layer(2,3)
 print(n(x))
